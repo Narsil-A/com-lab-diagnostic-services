@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+
+{% block title %} {{lead.name}} {% endblock %}
+
+{% block content %}
+
+    <div class="py-6 px-6">
+
+        <h1 class="mb-4 text-xl">{{ lead.name }}</h1>
+
+        {% if lead.description %}
+
+            <p class="font-semibold">Name</p>
+            <p class="mb-2 text-xl">{{ lead.description }}</p>
+
+        {% endif %}
+            <p class="font-semibold">Phone Number</p>
+            <p class="mb-2 text-xl">{{lead.phone_number}}</p>
+
+            <p class="font-semibold">Email</p>
+            <p class="mb-2 text-xl">{{lead.email}}</p>
+
+            <p class="font-semibold">Priority</p>
+            <p class="mb-2 text-xl">{{lead.get_priority_display}}</p>
+
+            <p class="font-semibold">Status</p>
+            <p class="mb-2 text-xl">{{lead.get_status_display}}</p>
+
+            <p class="font-semibold">Created at</p>
+            <p class="mb-2 text-xl">{{lead.created_at}}</p>
+
+            <p class="font-semibold">Modified at </p>
+            <p class="mb-6 text-xl">{{lead.modified_at}}</p>
+
+            <hr class="mb-4">
+
+            <a href="{% url 'leads_convert' lead.id %}" class="inline-block py-4 px-6 bg-blue-300 rounded-xl text-white">Convert to Client</a>
+
+            <a href="{% url 'leads_edit' lead.id %}" class="inline-block py-4 px-6 bg-blue-500 rounded-xl text-white">Edit</a>
+
+            <a href="{% url 'leads_delete' lead.id %}" class="inline-block py-4 px-6 bg-red-500 rounded-xl text-white">Delete</a>
+
+            <hr class="mb-4">
+
+            <a href="{% url 'leads_list' %}" class="inline-block py-4 px-6 bg-blue-500 rounded-xl text-white">Back to Leads</a>
+
+    </div>
+
+{% endblock %}
