@@ -1,0 +1,12 @@
+# .gitignore
+
+# Ignore the virtual environment
+django_env/
+
+# Ignore database files
+*.sqlite3
+db.sqlite3
+
+.env 
+
+.vscode

@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 from django.db import models
 
+from labservices.models import DiagnosticService
+
 
 class Lead(models.Model):
     LOW = 'low'
@@ -30,6 +32,7 @@ class Lead(models.Model):
     email = models.EmailField()
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
     description = models.TextField(blank=True, null=True)
+    selected_diagnostics = models.ManyToManyField(DiagnosticService, related_name='leads')
     priority = models.CharField(max_length=10, choices=CHOICES_PRIORITY, default=MEDIUM)
     status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=NEW)
     converted_to_client = models.BooleanField(default=False)
