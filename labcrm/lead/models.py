@@ -32,7 +32,7 @@ class Lead(models.Model):
     email = models.EmailField()
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
     description = models.TextField(blank=True, null=True)
-    selected_diagnostics = models.ManyToManyField(DiagnosticService, related_name='leads')
+    selected_diagnostics = models.ForeignKey(DiagnosticService, related_name='leads',  null=True, blank=True, on_delete=models.SET_NULL)
     priority = models.CharField(max_length=10, choices=CHOICES_PRIORITY, default=MEDIUM)
     status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=NEW)
     converted_to_client = models.BooleanField(default=False)

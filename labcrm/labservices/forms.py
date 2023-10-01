@@ -1,8 +1,12 @@
-from django import forms 
+
+from django import forms
 
 from .models import DiagnosticService
 
-class AddDiagnosticServiceForm(forms.ModelForm):
+
+class DiagnosticServiceForm(forms.ModelForm):
     class Meta:
         model = DiagnosticService
-        fields = ('name', 'description', 'cost', 'duration',)
+        fields = '__all__'
+
+
