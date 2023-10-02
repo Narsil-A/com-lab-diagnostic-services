@@ -1,8 +1,17 @@
 from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render
+from lead.models import Lead
+from client.models import Client
 
 
 @login_required
 def dashboard(request):
-    return render(request, 'dashboard/dashboard.html')
+
+    leads = Lead.objects.filter().order_by('-created_at')[0:5]
+    clients = Client.objects.filter().order_by('-created_at')[0:5]
+
+    return render(request, 'dashboard/dashboard.html', {
+        'leads': leads,
+        'clients': clients,
+    })

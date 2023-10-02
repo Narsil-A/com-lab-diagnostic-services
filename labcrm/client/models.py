@@ -9,10 +9,13 @@ class Client(models.Model):
     email = models.EmailField()
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
     description = models.TextField(blank=True, null=True)
-    selected_diagnostics = models.ManyToManyField(DiagnosticService, related_name='clients_requests')
+    selected_diagnostics = models.ForeignKey(DiagnosticService, related_name='clients',  null=True, blank=True, on_delete=models.SET_NULL)
     created_by = models.ForeignKey(User, related_name='clients', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('created_by',)
 
     def __str__(self):
         return self.name

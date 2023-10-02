@@ -10,6 +10,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('dashboard/leads/', include('lead.urls')),
     path('dashboard/clients/', include('client.urls')),
+    path('dashboard/labservices/', include('labservices.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('about/', about, name='about'),
     path('sign-up/', signup, name='signup'),
