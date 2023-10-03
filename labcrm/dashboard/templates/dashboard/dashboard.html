@@ -17,6 +17,9 @@
          <div class="mb-2 lead">
             <h3 class="font-semibold">{{lead.name}}</h3>
 
+            <p class="text-xs">Status: {{ lead.get_status_display }}</p>
+            <p class="text-xs">Status: {{ lead.get_priority_display }}</p>
+
             <a href="{% url 'leads_detail' lead.pk %}">Details</a>
 
          </div>

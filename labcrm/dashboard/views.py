@@ -8,7 +8,7 @@ from client.models import Client
 @login_required
 def dashboard(request):
 
-    leads = Lead.objects.filter().order_by('-created_at')[0:5]
+    leads = Lead.objects.filter(converted_to_client=False).order_by('-created_at')[0:5]
     clients = Client.objects.filter().order_by('-created_at')[0:5]
 
     return render(request, 'dashboard/dashboard.html', {
