@@ -31,13 +31,13 @@
 
             <hr class="mb-4">
 
-            <a href="{% url 'clients_edit' client.id %}" class="inline-block py-4 px-6 bg-blue-500 rounded-xl text-white">Edit</a>
+            <a href="{% url 'client:edit' client.id %}" class="inline-block py-4 px-6 bg-blue-500 rounded-xl text-white">Edit</a>
 
-            <a href="{% url 'clients_delete' client.id %}" class="inline-block py-4 px-6 bg-red-500 rounded-xl text-white">Delete</a>
+            <a href="{% url 'client:delete' client.id %}" class="inline-block py-4 px-6 bg-red-500 rounded-xl text-white">Delete</a>
 
             <hr class="mb-4">
 
-            <a href="{% url 'clients_list' %}" class="inline-block py-4 px-6 bg-blue-500 rounded-xl text-white">Back to Clients</a>
+            <a href="{% url 'client:list' %}" class="inline-block py-4 px-6 bg-blue-500 rounded-xl text-white">Back to Clients</a>
 
     </div>
 

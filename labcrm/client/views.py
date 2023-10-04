@@ -28,7 +28,7 @@ def clients_delete(request, pk):
     client.delete()
     messages.success(request, "The client was deleted")
 
-    return redirect('clients_list')
+    return redirect('client:list')
 
 @login_required
 def clients_edit(request, pk):
@@ -40,7 +40,7 @@ def clients_edit(request, pk):
             client.save()
             messages.success(request, "The client was created")
 
-            return redirect('clients_list')
+            return redirect('client:ist')
 
     else:
         form = AddClientForm(instance=client)
@@ -62,7 +62,7 @@ def add_client(request):
             client.save()
             messages.success(request, "The leads was created")
 
-            return redirect('clients_list')
+            return redirect('client:list')
     else:
         form = AddClientForm()
 

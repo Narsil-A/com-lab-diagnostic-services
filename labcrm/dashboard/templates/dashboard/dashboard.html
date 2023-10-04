@@ -20,7 +20,7 @@
             <p class="text-xs">Status: {{ lead.get_status_display }}</p>
             <p class="text-xs">Status: {{ lead.get_priority_display }}</p>
 
-            <a href="{% url 'leads_detail' lead.pk %}">Details</a>
+            <a href="{% url 'lead:detail' lead.pk %}">Details</a>
 
          </div>
          {% endfor %}
@@ -33,7 +33,7 @@
          <div class="mb-2 lead">
             <h3 class="font-semibold">{{client.name}}</h3>
 
-            <a href="{% url 'clients_detail' client.pk %}">Details</a>
+            <a href="{% url 'client:detail' client.pk %}">Details</a>
 
          </div>
          {% endfor %}

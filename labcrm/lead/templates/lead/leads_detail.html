@@ -37,15 +37,15 @@
 
             <hr class="mb-4">
 
-            <a href="{% url 'leads_convert' lead.id %}" class="inline-block py-4 px-6 bg-blue-300 rounded-xl text-white">Convert to Client</a>
+            <a href="{% url 'lead:convert' lead.id %}" class="inline-block py-4 px-6 bg-blue-300 rounded-xl text-white">Convert to Client</a>
 
-            <a href="{% url 'leads_edit' lead.id %}" class="inline-block py-4 px-6 bg-blue-500 rounded-xl text-white">Edit</a>
+            <a href="{% url 'lead:edit' lead.id %}" class="inline-block py-4 px-6 bg-blue-500 rounded-xl text-white">Edit</a>
 
-            <a href="{% url 'leads_delete' lead.id %}" class="inline-block py-4 px-6 bg-red-500 rounded-xl text-white">Delete</a>
+            <a href="{% url 'lead:delete' lead.id %}" class="inline-block py-4 px-6 bg-red-500 rounded-xl text-white">Delete</a>
 
             <hr class="mb-4">
 
-            <a href="{% url 'leads_list' %}" class="inline-block py-4 px-6 bg-blue-500 rounded-xl text-white">Back to Leads</a>
+            <a href="{% url 'lead:list' %}" class="inline-block py-4 px-6 bg-blue-500 rounded-xl text-white">Back to Leads</a>
 
     </div>
 
