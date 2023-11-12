@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 from django.db import models
 
-from labservices.models import DiagnosticService
+from labservice.models import DiagnosticService
 
 
 class Lead(models.Model):

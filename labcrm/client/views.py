@@ -40,7 +40,7 @@ def clients_edit(request, pk):
             client.save()
             messages.success(request, "The client was created")
 
-            return redirect('client:ist')
+            return redirect('client:list')
 
     else:
         form = AddClientForm(instance=client)

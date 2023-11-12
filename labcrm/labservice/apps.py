@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class LabservicesConfig(AppConfig):
+class LabserviceConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'labservices'
+    name = 'labservice'
