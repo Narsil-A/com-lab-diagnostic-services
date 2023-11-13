@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'userprofile',
     'phonenumber_field',
     'client', 
-    'labservice'
+    'labservice',
+    'lab_staff'
     
 ]
 

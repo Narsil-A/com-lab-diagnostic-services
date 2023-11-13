@@ -2,10 +2,12 @@ from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 from django.db import models
 from labservice.models import DiagnosticService
+from django.core.validators import MinLengthValidator
 
 class Client(models.Model):
     
     name = models.CharField(max_length=255)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="Client Account")
     email = models.EmailField()
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
     description = models.TextField(blank=True, null=True)
@@ -15,7 +17,11 @@ class Client(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        verbose_name = "Client"
+        verbose_name_plural = "Clients"
         ordering = ('created_by',)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} ({self.selected_diagnostics})"
+
+    name.validators = [MinLengthValidator(2)]
