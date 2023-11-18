@@ -36,9 +36,10 @@
             </div>
             {% else %}
             <a href="{% url 'login' %}" class="py-4 px-6 bg-blue-600 rounded-xl text-white">Log in</a>
-            <a href="{% url 'userprofile:signup' %}" class="py-4 px-6 bg-blue-300 rounded-xl text-white">Sign up</a>
-
+            <a href="{% url 'userprofile:signup' 'client' %}" class="py-4 px-6 bg-blue-300 rounded-xl text-white">Client Sign up</a>
+            <a href="{% url 'userprofile:signup' 'lab_staff' %}" class="py-4 px-6 bg-blue-300 rounded-xl text-white">Lab Staff Sign up</a>
             {% endif %}
+        
 
         </div>
         <!-- Hamburger Menu Button -->

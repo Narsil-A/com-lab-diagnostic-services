@@ -1,26 +1,28 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
+from .forms import ClientRegistrationForm, LabStaffRegistrationForm
+
 from django.shortcuts import render, redirect
-from .models import Userprofile
+from .models import UserProfile
 
 
-def signup(request):
+def signup(request, role='client'):
+    if role == 'client':
+        form_class = ClientRegistrationForm
+    elif role == 'lab_staff':
+        form_class = LabStaffRegistrationForm
+    else:
+        return redirect('home')  # or some default
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-
+        form = form_class(request.POST)
         if form.is_valid():
-            user = form.save()
-
-            Userprofile.objects.create(user=user)
-
+            form.save()
             return redirect('/log-in/')
     else:
-        form = UserCreationForm
+        form = form_class()
 
-    return render(request, 'userprofile/signup.html', {
-        'form': form
-    })
+    return render(request, 'userprofile/signup.html', {'form': form})
+
 
 login_required
 def myaccount(request):

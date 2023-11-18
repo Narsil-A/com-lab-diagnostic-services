@@ -35,11 +35,11 @@ class ClientRegistrationForm(UserCreationForm):
 
 class LabStaffRegistrationForm(UserCreationForm):
 
-    name = forms.CharField(max_length=100, verbose_name="Full Name")
+    name = forms.CharField(max_length=100, label="Full Name")
     phone_number = forms.CharField(max_length=15)
-    position = forms.CharField(max_length=100, verbose_name="Position in Lab")
-    start_date = forms.DateField(verbose_name="Start Date")
-    profession = forms.CharField(max_length=100, verbose_name="Profession")
+    position = forms.CharField(max_length=100, label="Position in Lab")
+    start_date = forms.DateField(label="Start Date")
+    profession = forms.CharField(max_length=100, label="Profession")
 
     class Meta:
         model = User
